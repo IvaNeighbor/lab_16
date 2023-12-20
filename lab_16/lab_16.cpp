@@ -12,7 +12,7 @@ int main() {
 	switch (number) {
 	case 1: {
 		int arrayA[3][4], arrayB[4][3], arrayBt[3][4], arrayC[3][4];
-		printf_s("Enter elements of matrix 3*4\n");
+		printf_s("Enter elements of the matrix 3*4\n");
 		for (int a = 0; a < 3; a++) {
 			for (int b = 0; b < 4; b++) {
 				printf_s("array[%d][%d]: ", a, b);
@@ -20,7 +20,7 @@ int main() {
 			}
 		}
 
-		printf_s("Enter elements of matrix 4*3\n");
+		printf_s("Enter elements of the matrix 4*3\n");
 		for (int c = 0; c < 4; c++) {
 			for (int d = 0; d < 3; d++) {
 				printf_s("array[%d][%d]: ", c, d);
@@ -48,7 +48,7 @@ int main() {
 		  break;
 	case 2: {
 		int matrix[MAX_SIZE][MAX_SIZE], n, max;
-		printf_s("Enter size square matrix n*n (not more than %d)\n", MAX_SIZE);
+		printf_s("Enter size of the square matrix n*n (not more than 10)\n");
 		scanf_s("%d", &n);
 		if (n <= 10) {
 				printf_s("Enter the elements of the matrix (%dx%d):\n", n, n);
@@ -72,7 +72,7 @@ int main() {
 				}
 			}
 		else {
-			printf_s("Wrong size of matrix\n");
+			printf_s("Wrong size of the matrix\n");
 		}
 	}
 		  break;
@@ -98,6 +98,40 @@ int main() {
 		printf_s("array f:\n");
 		for (int i = 0; i < 4; i++) {
 			printf_s("f[%d] = %d\n", i, f[i]);
+		}
+	}
+		  break;
+	case 4: {
+		int array[MAX_SIZE][MAX_SIZE], n, m;
+		printf_s("Enter size of the matrix m*n (not more than %d)\n", MAX_SIZE);
+		scanf_s("%d%d", &n, &m);
+		if (n <= MAX_SIZE && m <= MAX_SIZE) {
+			printf_s("Enter elements of the matrix (%dx%d):\n", n, m);
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < m; j++) {
+					printf_s("array[%d][%d]: ", i, j);
+					scanf_s("%d", &array[i][j]);
+				}
+			}
+			printf_s("Matrix as snake:\n");
+			for (int i = 0; i < n; i++) {
+				if (i % 2 == 0) {
+					// Вивід рядка зліва направо
+					for (int j = 0; j < m; j++) {
+						printf_s("%d\t", array[i][j]);
+					}
+				}
+				else {
+					// Вивід рядка справа наліво
+					for (int j = m - 1; j >= 0; j--) {
+						printf_s("%d\t", array[i][j]);
+					}
+				}
+				printf_s("\n");
+			}
+		}
+		else {
+			printf_s("Wrong size of the matrix\n");
 		}
 	}
 		  break;
