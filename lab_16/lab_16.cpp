@@ -47,8 +47,60 @@ int main() {
 	}
 		  break;
 	case 2: {
+		int matrix[MAX_SIZE][MAX_SIZE], n, max;
+		printf_s("Enter size square matrix n*n (not more than %d)\n", MAX_SIZE);
+		scanf_s("%d", &n);
+		if (n <= 10) {
+				printf_s("Enter the elements of the matrix (%dx%d):\n", n, n);
+				for (int i = 0; i < n; i++) {
+					for (int j = 0; j < n; j++) {
+						printf_s("matrix[%d][%d]: ", i, j);
+						scanf_s("%d", &matrix[i][j]);
+					}
+				}
+				printf_s("Max in each row:\n");
+				for (int i = 0; i < n; i++) {
+					max = matrix[i][0];
 
+					for (int j = 1; j < n; j++) {
+						if (matrix[i][j] > max) {
+							max = matrix[i][j];
+						}
+					}
+
+					printf_s("Row %d: %d\n", i + 1, max);
+				}
+			}
+		else {
+			printf_s("Wrong size of matrix\n");
+		}
 	}
+		  break;
+	case 3: {
+		int f[4] = {0}, s[4][3],  sum = 0;
+		printf_s("Enter the elements of the matrix 4*3:)\n");
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 3;j++) {
+				printf_s("s[%d][%d]: ", i, j);
+				scanf_s("%d", &s[i][j]);
+			}
+		}
+		printf_s("Form an array f\n");
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (s[i][j] > 0) {
+					sum += s[i][j];
+				}
+			}
+			f[i] = sum;
+			sum = 0;
+		}
+		printf_s("array f:\n");
+		for (int i = 0; i < 4; i++) {
+			printf_s("f[%d] = %d\n", i, f[i]);
+		}
+	}
+		  break;
 	default:
 		printf_s("Wrong number");
 	}
